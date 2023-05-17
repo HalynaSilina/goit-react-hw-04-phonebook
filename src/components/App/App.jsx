@@ -9,7 +9,6 @@ import { useLocalStorage } from 'hooks/useLocalStorage';
 const App = () => {
   const [contacts, setContacts] = useLocalStorage('contacts', []);
   const [filter, setFilter] = useState('');
-console.log(contacts)
   const addContact = (name, number) => {
     if (contacts.some(contact => contact.name === name)) {
       return alert(`${name} is already in contacts`);
@@ -19,7 +18,7 @@ console.log(contacts)
       number,
       id: nanoid(),
     };
-    setContacts(state=>[...state, contact]);
+    setContacts(state => [...state, contact]);
   };
 
   const deleteContact = id => {
